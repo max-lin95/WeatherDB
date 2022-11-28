@@ -53,7 +53,24 @@ function futureWeather(lat, lon) {
             };
 
             var currentDate = moment.unix(fiveDayInfo.date).format("MM/DD/YYYY");
+            var iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${futureResponse.daily[i].weather[0].main}" />`;
+
+            var fiveDayCard = $(`
+                <div class="pl-2">
+                    <div class ="card pl-2 pt-2 mb-2 bg-primary" style="width: 10rem;>
+                        <div class="card-body">
+                            <h4>${currentDate}</h4>
+                            <p>${iconURL}</p>
+                            <p>Temp: ${fiveDayInfo.temp} °F</p>
+                            <p>Humidity: ${fiveDayInfo.humidity}\%</p>
+                        </div>
+                    </div>
+                </div>        
+            `);
+            $("#five-day-weather").append(fiveDayCard);
         }
-    })
+    });
 }
+
+
 
