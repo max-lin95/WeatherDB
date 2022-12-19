@@ -1,10 +1,11 @@
-var APIKey ="6a90dc5f99be9c2ebf03e8c9ca4e3233";
+var apiKey ="6a90dc5f99be9c2ebf03e8c9ca4e3233";
 var currentCity = "";
 var pastCity = "";
 var searchHistory = [];
 
 function currentWeatherCity(city){
-    var weatherQuery = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    
+    https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key},
 
     $.ajax({
         url: weatherQuery,
@@ -33,6 +34,8 @@ function currentWeatherCity(city){
             });
     
 }
+
+currentWeatherCity()
 
 function futureWeather(lat, lon) {
     var futureWeatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
@@ -72,5 +75,6 @@ function futureWeather(lat, lon) {
     });
 }
 
-
+// attach to click event listener. function needs to grab the searched value
+futureWeather()
 
